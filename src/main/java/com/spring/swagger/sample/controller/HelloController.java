@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,5 +28,10 @@ public class HelloController {
     @GetMapping("/product/getAll")
     public ResponseEntity<List<Product>> getProducts() {
         return new ResponseEntity<>(productServiceImpl.getAllProducts(), HttpStatus.OK);
+    }
+    
+    @GetMapping("/product/{name}")
+    public ResponseEntity<List<Product>> getByProductName(@PathVariable("name") String productName) {
+        return new ResponseEntity<>(productServiceImpl.getByProductName(productName), HttpStatus.OK);
     }
 }

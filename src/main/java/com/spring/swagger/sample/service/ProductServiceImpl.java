@@ -22,4 +22,12 @@ public class ProductServiceImpl {
         
         return products;
     }
+    
+    public List<Product> getByProductName(String name) {
+        List<Product> products = new ArrayList<>();
+        
+        this.productRepository.findByProductName(name).forEach(products::add);
+        
+        return products;
+    }
 }
