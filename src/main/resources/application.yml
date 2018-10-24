@@ -16,4 +16,9 @@ spring:
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.MySQL5Dialect
+    security:
+        user:
+            name: admin
+            password: password
+            role: ADMIN
     
